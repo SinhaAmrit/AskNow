@@ -17,6 +17,7 @@ class AddTwoFactorColumnsToUsersTable extends Migration
             $table->text('two_factor_secret')
                     ->after('password')
                     ->nullable();
+            $table->string('username')->unique()->nullable();
 
             $table->text('two_factor_recovery_codes')
                     ->after('two_factor_secret')
@@ -32,7 +33,7 @@ class AddTwoFactorColumnsToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('two_factor_secret', 'two_factor_recovery_codes');
+            $table->dropColumn('two_factor_secret','username','two_factor_recovery_codes');
         });
     }
 }
