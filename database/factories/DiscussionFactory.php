@@ -32,11 +32,11 @@ class DiscussionFactory extends Factory
     {
 
         return [
-            'title' => $this->faker->unique()->title,
+            'title' => $this->faker->sentence,
             'category' => $this->faker->word,
             'summery' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'slug' => Str::of($title)->slug('-')->lower()->ascii(),
+            'slug' => $this->faker->slug,
             'user_id' => '1'
         ];
     }

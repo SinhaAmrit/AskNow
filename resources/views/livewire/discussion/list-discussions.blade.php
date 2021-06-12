@@ -1,20 +1,26 @@
 <div>
-    <div class="flex w-full justify-end gap-1">
-        <button type="button" class="w-auto border-l border-t border-b text-base font-medium rounded-l-md text-black bg-white hover:bg-gray-100 px-4 py-2" wire:click="sortOn('created_at')">
-            Recent/Older
-        </button>
-        <button type="button" class="w-auto border text-base font-medium text-black bg-white hover:bg-gray-100 px-4 py-2">
-            Popular
-        </button>
-        <button type="button" class="w-auto border-t border-b border-r text-base font-medium rounded-r-md text-black bg-white hover:bg-gray-100 px-4 py-2">
-            Old First
-        </button>
+    <div class="flex flex-col md:flex-row w-full justify-between gap-1">
+        <div class="w-full relative mt-6 lg:mt-0">
+            <input type="text" placeholder="Search Discussions..." class="block w-full py-1.5 pl-10 pr-4 leading-normal rounded-2xl focus:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-500 ring-opacity-90 bg-gray-100 dark:bg-gray-800 text-gray-400 aa-input"/>
+        </div>
+        <div class="flex w-full mt-6 lg:mt-0 justify-center lg:justify-end gap-1">
+            <button type="button" class="w-auto border-l border-t border-b text-base font-medium rounded-l-md text-black bg-white hover:bg-gray-100 px-4 py-2 shadow-lg" wire:click="sortOn('created_at')">
+                Recent/Older
+            </button>
+            <button type="button" class="w-auto border text-base font-medium text-black bg-white hover:bg-gray-100 px-4 py-2 shadow-lg">
+                Popular
+            </button>
+            <button type="button" class="w-auto border-t border-b border-r text-base font-medium rounded-r-md text-black bg-white hover:bg-gray-100 px-4 py-2 shadow-lg">
+                Old First
+            </button>
+        </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4 w-full" wire.loading.delay.class="opacity-50">   
+
+    <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4 w-full" wire.loading.delay.class="opacity-50">   
         @foreach($discussions as $discussion)
-        <div class="m-3 w-full" @if($loop->last)id="last_record"@endif>
-            <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 w-full">
+        <div class="m-3 mx-auto w-full" @if($loop->last)id="last_record"@endif>
+            <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 h-72 w-full">
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex items-center">
                         <span class="rounded-xl relative p-2 bg-blue-100">

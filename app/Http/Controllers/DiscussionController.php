@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateDiscussionRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Mckenziearts\Notify\emotify;
 
 class DiscussionController extends Controller
 {
@@ -53,7 +54,10 @@ class DiscussionController extends Controller
             'description' => $request->description,
             'slug' => $request->title
         ]);
-        Session::flash('success', 'Query Added Successfully! ;-)'); 
+        // Session::flash('success', 'Query Added Successfully! ;-)'); 
+
+        // notify()->success('Query Added Successfully! ;-)');
+        drakify('success');
         // Session::flash('alert-class', 'alert-danger');
         return redirect()->back(); 
     }
@@ -66,7 +70,7 @@ class DiscussionController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('discussion.show');
     }
 
     /**
