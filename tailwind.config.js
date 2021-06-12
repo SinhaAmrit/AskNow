@@ -26,6 +26,9 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            animation: {
+                'spin-slow': 'spin 3s linear infinite',
+            }
         },
     },
 

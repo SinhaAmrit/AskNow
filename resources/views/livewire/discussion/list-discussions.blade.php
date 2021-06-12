@@ -1,7 +1,19 @@
 <div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4 w-full">
+    <div class="flex w-full justify-end gap-1">
+        <button type="button" class="w-auto border-l border-t border-b text-base font-medium rounded-l-md text-black bg-white hover:bg-gray-100 px-4 py-2" wire:click="sortOn('created_at')">
+            Recent/Older
+        </button>
+        <button type="button" class="w-auto border text-base font-medium text-black bg-white hover:bg-gray-100 px-4 py-2">
+            Popular
+        </button>
+        <button type="button" class="w-auto border-t border-b border-r text-base font-medium rounded-r-md text-black bg-white hover:bg-gray-100 px-4 py-2">
+            Old First
+        </button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4 w-full" wire.loading.delay.class="opacity-50">   
         @foreach($discussions as $discussion)
-        <div class="m-3 w-full">
+        <div class="m-3 w-full" @if($loop->last)id="last_record"@endif>
             <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 w-full">
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex items-center">
@@ -22,7 +34,7 @@
                                 Google
                             </span>
                             <span class="text-sm text-gray-500 dark:text-gray-200 ml-2">
-                                Google Inc.
+                                {{ $discussion->created_at->diffForHumans() }}
                             </span>
                         </div>
                     </div>
@@ -57,8 +69,32 @@
             </div>
         </div>
         @endforeach
+        @if($loadAmount <= $totalRecords)
+        <div class="relative flex justify-center items-center h-screen text-3xl p-6" wire:loading>
+            <div class="inline-block animate-ping ease duration-300 w-5 h-5 bg-purple-900 mx-2"></div>Loading...
+        </div>
+        @endif
     </div>
-    @if($discussions->hasMorePages())
-    @livewire('load-more-discussions', ['page' => $page, 'perPage' => $perPage])
+    @if($loadAmount >= $totalRecords)
+    <div class="text-3xl text-center">
+        <img src="{{ asset('images/no-records-found.png') }}" class="w-1/3 mx-auto" alt="">
+        No More Discussions :-(
+    </div>
     @endif
+    <script>
+        const lastRecord = document.getElementById('last_record')
+        const otions = {
+            root: null,
+            threshold: 1,
+            rootMargin: '20px'
+        }
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    @this.loadMore()
+                }
+            })
+        })
+        observer.observe(lastRecord)
+    </script>
 </div>

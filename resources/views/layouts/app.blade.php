@@ -29,7 +29,7 @@
   @show
 
 </head>
-<body>
+<body class="antialiased">
   <main class="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden relative">
     <div class="flex items-start justify-between">
       <x-Sidebar />

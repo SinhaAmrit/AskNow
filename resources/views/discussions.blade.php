@@ -13,6 +13,13 @@ if (Auth::check()) {
 @endphp
 @extends('layouts.app')
 @section('title', 'Discussions | AskNow')
+@section('intoHead')
+<style>
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+</style>
+@endsection
 @section('content')
 <div class="overflow-auto h-screen pb-24 px-4 md:px-6">
   <h1 class="text-4xl font-semibold text-gray-800 dark:text-white">
