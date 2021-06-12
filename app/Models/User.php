@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use JoelButcher\Socialstream\SetsProfilePhotoFromUrl;
-use JoelButcher\Socialstream\HasConnectedAccounts;
+use App\Models\Discussion;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Laravel\Fortify\TwoFactorAuthenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use JoelButcher\Socialstream\HasConnectedAccounts;
+use JoelButcher\Socialstream\SetsProfilePhotoFromUrl;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -77,4 +78,13 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return $this->getPhotoUrl();
     }
+
+        /**
+     * One-to-many Relationship with Discussion Model.
+     *
+     * @return string
+     */
+        public function discussions(){
+            return $this->hasMany(Discussion::class);
+        }
 }

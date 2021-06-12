@@ -12,13 +12,16 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        @livewireStyles
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
+        <div class="font-sans bg-blue-300 text-gray-900 antialiased">
             {{ $slot }}
         </div>
+        @livewireScripts
+        <script src="{{ URL::asset('js/LiveTurbo.js') }}" data-turbolinks-eval="false"></script>
     </body>
 </html>

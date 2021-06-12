@@ -5,7 +5,29 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 
 class AppLayout extends Component
-{
+{    
+
+    // public function greet() {
+    //     $message = "";
+
+    //     /* This sets the $time variable to the current hour in the 24 hour clock format */
+    //     $time = date("H");
+
+    //     /* Set the $timezone variable to become the current timezone */
+    //     $timezone = date("e");
+
+    //     /* If the time is less than 1200 hours, show good morning */
+    //     if ($time < "12") { $message = "Good morning"; } else
+
+    //     /* If the time is grater than or equal to 1200 hours, but less than 1700 hours, so good afternoon */
+    //     if ($time >= "12" && $time < "17") { $message = "Good afternoon"; } else
+
+    //     /* Should the time be between or equal to 1700 and 1900 hours, show good evening */
+    //     if ($time >= "17" && $time < "19") { $message = "Good evening"; }
+
+    //     return $message; 
+    // }
+
     /**
      * Get the view / contents that represents the component.
      *
@@ -13,6 +35,23 @@ class AppLayout extends Component
      */
     public function render()
     {
-        return view('layouts.app');
+        $message = "";
+
+        /* This sets the $time variable to the current hour in the 24 hour clock format */
+        $time = date("H");
+
+        /* Set the $timezone variable to become the current timezone */
+        $timezone = date("e");
+
+        /* If the time is less than 1200 hours, show good morning */
+        if ($time < "12") { $message = "Good morning"; } else
+
+        /* If the time is grater than or equal to 1200 hours, but less than 1700 hours, so good afternoon */
+        if ($time >= "12" && $time < "17") { $message = "Good afternoon"; } else
+
+        /* Should the time be between or equal to 1700 and 1900 hours, show good evening */
+        if ($time >= "17" && $time < "19") { $message = "Good evening"; }
+
+        return view('layouts.app', compact('message'));
     }
 }
