@@ -2,25 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateDiscussionRequest;
+use App\Http\Requests\CreateReplyRequest;
 use App\Models\Discussion;
-use App\Models\Reply;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Mckenziearts\Notify\emotify;
 
-class DiscussionController extends Controller
+class RepliesController extends Controller
 {
-    /**
-     * Instantiate a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth')->except('index');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +16,7 @@ class DiscussionController extends Controller
      */
     public function index()
     {
-        return view('discussions');
+        //
     }
 
     /**
@@ -38,7 +26,7 @@ class DiscussionController extends Controller
      */
     public function create()
     {
-        return view('discussion.create');
+        //
     }
 
     /**
@@ -47,17 +35,25 @@ class DiscussionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateDiscussionRequest $request)
+    public function store(CreateReplyRequest $request, Discussion $discussion)
     {
-        auth()->user()->discussions()->create([
-            'title' => $request->title,
-            'category' => $request->category,
-            'summery' => $request->summery,
-            'description' => $request->description,
-            'slug' => $request->title
+        auth()->user()->replies()->create([
+            'discussion_id' => $discussion->id,
+            'content' => $request->content,
         ]);
         drakify('success');
-        return redirect()->back(); 
+        return redirect()->back();
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -92,12 +88,5 @@ class DiscussionController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function reply(Discussion $discussion, Reply $reply)
-    {
-        $discussion->markAsBestReply($reply);
-        drakify('success');
-        return redirect()->back();
     }
 }

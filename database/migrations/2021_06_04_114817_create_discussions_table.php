@@ -25,6 +25,7 @@ class CreateDiscussionsTable extends Migration
             $table->string('summery')->default(' ');
             $table->string('slug')->unique();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('reply_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
