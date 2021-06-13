@@ -12,6 +12,7 @@ class ListDiscussions extends Component
 	public $loadAmount = 12;
 	public $sortOn = "created_at";
 	public $sortDirection = 'desc';
+	public $searchTerm;
 
 	public function loadMore()
 	{
@@ -38,10 +39,13 @@ class ListDiscussions extends Component
 
 	public function render()
 	{
+		$searchTerm = '%'. $this->searchTerm . '%';
+		// dd($searchTerm);
 		return view('livewire.discussion.list-discussions')
 		->with(
 			'discussions',
 			Discussion::orderBy($this->sortOn, $this->sortDirection)
+			->where('title', 'LIKE', $searchTerm)
 			->limit($this->loadAmount)
 			->with('user')
 			->with('replies')

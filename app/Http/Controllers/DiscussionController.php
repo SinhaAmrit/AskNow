@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateDiscussionRequest;
-use App\Models\Discussion;
 use App\Models\Reply;
+use App\Models\Discussion;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Mckenziearts\Notify\emotify;
+use Illuminate\Support\Facades\Session;
+use App\Http\Requests\CreateDiscussionRequest;
 
 class DiscussionController extends Controller
 {
@@ -18,7 +18,7 @@ class DiscussionController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        $this->middleware('auth')->only('store', 'create');
     }
 
     /**
@@ -60,43 +60,11 @@ class DiscussionController extends Controller
         return redirect()->back(); 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
     public function reply(Discussion $discussion, Reply $reply)
     {
-        $discussion->markAsBestReply($reply);
+        $discussion->forceFill([
+            'reply_id' => $reply->id,
+        ])->save();
         drakify('success');
         return redirect()->back();
     }
