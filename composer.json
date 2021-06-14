@@ -17,6 +17,8 @@
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.4",
         "mckenziearts/laravel-notify": "^2.2",
+        "munafio/chatify": "^1.2",
+        "spatie/laravel-analytics": "^3.11",
         "wulfheart/pretty_routes": "^0.3.0"
     },
     "require-dev": {
