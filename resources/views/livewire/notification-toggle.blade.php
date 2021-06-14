@@ -1,4 +1,4 @@
-<div class="mx-3 pr-4 relative" wire:ignore>
+<div class="relative" wire:ignore>
 	<x-jet-dropdown align="right" width="48">
 		<x-slot name="trigger">
 			<button class="flex p-2 items-center rounded-full bg-white shadow text-gray-400 hover:text-gray-700 text-md" wire:click="readNotifications">

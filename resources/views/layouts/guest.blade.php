@@ -22,6 +22,5 @@
             {{ $slot }}
         </div>
         @livewireScripts
-        <script src="{{ URL::asset('js/LiveTurbo.js') }}" data-turbolinks-eval="false"></script>
     </body>
 </html>

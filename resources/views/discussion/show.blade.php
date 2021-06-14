@@ -9,12 +9,12 @@
 		<p class="text-3xl md:text-4xl lg:text-5xl text-gray-600 font-serif mt-8 mb-4 mx-4">
 			#{{ $discussion->title }}
 		</p>
-		<span class="text-xl bg-purple-600 text-white p-2 rounded-lg w-auto font-serif mx-2 mb-10">
+		<span class="block md:inline-block text-xl bg-purple-600 text-white p-2 rounded-lg w-auto font-serif mx-2 md:mb-10">
 			&#187; {{ $discussion->replies->count() }} Answer(s)
 		</span>
 		<span class="font-semibold">
-			Asked by : <a href="" class="decoration-clone underline italic">{{ $discussion->user->name }}</a> 
-			&nbsp;  &#128337; {{ $discussion->created_at->diffForHumans() }} 
+			Asked by : <a href="" class="underline italic">{{ $discussion->user->name }}</a> 
+			<span class="block md:inline-block">&nbsp;  &#128337; {{ $discussion->created_at->diffForHumans() }} </span>
 		</span>
 		<hr>
 		<div class="mt-14 font-mono">

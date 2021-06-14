@@ -13,7 +13,9 @@ return [
     */
     'middlewares' => [
         'web',
-//        'auth'
+        'isDev',
+        'auth',
+        'password.confirm'
     ],
 
     /*
