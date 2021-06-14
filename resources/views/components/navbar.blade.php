@@ -28,7 +28,7 @@ if (Auth::check()) {
                     <x-jet-dropdown-link href="{{ route('discussions.create') }}">
                             Raise A Query
                     </x-jet-dropdown-link>
-                    <x-jet-dropdown-link href="{{ route('social') }}">
+                    <x-jet-dropdown-link href="{{ route('inbox') }}">
                             Inbox
                     </x-jet-dropdown-link>
                     @can('isAdmin')
