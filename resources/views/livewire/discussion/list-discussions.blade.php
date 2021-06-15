@@ -46,7 +46,7 @@
    <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4 w-full" wire.loading.delay.class="opacity-50">   
     @foreach($discussions as $discussion)
     <div class="m-3 mx-auto w-full" @if($loop->last)id="last_record"@endif>
-        <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 h-56 w-full">
+        <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300  w-full">
             <div class="flex items-center justify-between mb-6">
                 <div class="flex items-center">
                     <a href="#" class="block relative">
