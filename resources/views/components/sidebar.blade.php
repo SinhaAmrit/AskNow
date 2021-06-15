@@ -28,7 +28,7 @@
                     Raise A Query
                 </span>
             </a>
-            <a class="w-full flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start border-l-4 border-transparent text-gray-400 hover:text-purple-500" href="{{ route('social') }}">
+            <a class="w-full flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start border-l-4 border-transparent text-gray-400 hover:text-purple-500" href="{{ route('inbox') }}">
                 <span class="text-left">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z" />
