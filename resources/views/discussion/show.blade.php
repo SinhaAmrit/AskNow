@@ -50,12 +50,12 @@
 			</div>
 		</div>
 		@endforeach
-
+		@auth
 		<form action="{{ route('discussions.replies.store', $discussion->id) }}" method="POST">
 			@csrf
 			<h2 class="max-w-sm p-4 py-0 mt-6 mb-2 md:w-1/3 text-gray-500">Add Reply</h2>
 			<div class="items-center w-full p-4 py-0 text-gray-500">
-				<input type="text" name="content" id="content" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" @guest disabled="true" @endguest />@guest <a class="text-red-500" href="{{ route('login') }}">Login To Add Reply!</a> @endguest
+				<input type="text" name="content" id="content" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"/>
 			</div>
 			<hr/>
 			<div class="w-full px-4 pb-4 ml-auto mt-2 text-gray-500 md:w-1/3">
@@ -64,6 +64,11 @@
 				</button>
 			</div>
 		</form>
+		@else
+		<div class="mt-6">
+			<a href="{{ route('login') }}" class="text-red-500"> Login To Add Reply! </a>
+		</div>
+		@endauth
 	</div>
 </div>
 @endsection
