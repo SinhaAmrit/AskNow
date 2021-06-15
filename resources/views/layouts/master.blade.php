@@ -35,9 +35,9 @@
 <body class="antialiased">
   <main class="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden relative">
     <div class="flex items-start justify-between">
-      <x-Sidebar />
+      <x-sidebar />
       <div class="flex flex-col bg-gray-200 dark:bg-gray-700 w-full md:space-y-4">
-        <x-Navbar />
+        <x-navbar />
         @section('content')
         @show
       </div>
