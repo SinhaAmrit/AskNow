@@ -5,6 +5,7 @@
         "development": "mix",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "build": "tailwind build ./resources/css/app.css -o ./public/css/app.css",
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production"
@@ -13,12 +14,13 @@
         "@tailwindcss/forms": "^0.3.1",
         "@tailwindcss/typography": "^0.4.0",
         "alpinejs": "^2.7.3",
+        "autoprefixer": "^10.2.5",
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14",
+        "postcss": "^8.2.14",
         "postcss-import": "^14.0.1",
-        "tailwindcss": "^2.0.1"
+        "tailwindcss": "^2.1.2"
     },
     "dependencies": {}
 }
