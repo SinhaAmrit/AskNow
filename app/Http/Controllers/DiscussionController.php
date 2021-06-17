@@ -49,14 +49,19 @@ class DiscussionController extends Controller
      */
     public function store(CreateDiscussionRequest $request)
     {
-        auth()->user()->discussions()->create([
+        $status = auth()->user()->discussions()->create([
             'title' => $request->title,
             'category' => $request->category,
             'summery' => $request->summery,
             'description' => $request->description,
             'slug' => $request->title
         ]);
-        drakify('success');
+        if($status){
+            drakify('success');
+        }
+        else{
+            drakify('error');
+        }
         return redirect()->back(); 
     }
 

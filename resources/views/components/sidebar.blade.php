@@ -2,6 +2,7 @@
 <div class="h-screen hidden lg:block shadow-lg relative w-72">
     <div class="bg-white h-full dark:bg-gray-700">
       <div class="flex items-center justify-start pt-6 ml-8">
+        <img src="{{ asset('images/logo.png') }}" class="w-8 m-2 bg-blue-50 ring-2 ring-purple-500 p-1 ring-offset-2 rounded-full" alt="">
         <p class="font-bold dark:text-white text-xl">
             AskNow
         </p>
@@ -28,7 +29,7 @@
                     Raise A Query
                 </span>
             </a>
-            <a class="w-full flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start border-l-4 border-transparent text-gray-400 hover:text-purple-500" href="{{ route('inbox') }}">
+            <a class="w-full flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start border-l-4 border-transparent text-gray-400 hover:text-purple-500" href="{{ route('favorites') }}">
                 <span class="text-left">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z" />
