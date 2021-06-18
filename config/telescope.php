@@ -77,10 +77,10 @@ return [
 
     'middleware' => [
         'web',
-        'IsDevOrAdmin',
         'auth',
         'password.confirm',
-        Authorize::class,
+        'IsDevOrAdmin',
+        // Authorize::class,
     ],
 
     /*
