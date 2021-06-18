@@ -19,7 +19,7 @@ class IsDevOrAdmin
     {
         if (Auth::check()) {
             $roleType = Auth::user()->role;
-            if ($roleType == "DEV" | $roleType == "ADMIN") 
+            if ($roleType === "DEV" || $roleType === "ADMIN") 
                 return $next($request); 
         }
         return abort(403);
