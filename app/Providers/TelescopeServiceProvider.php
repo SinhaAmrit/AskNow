@@ -19,12 +19,12 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
         // Telescope::night();
         if (now()->hour >= 19 || now()->hour < 6) {
           Telescope::night();
-        }
+      }
 
       $this->hideSensitiveRequestDetails();
 
       Telescope::filter(function (IncomingEntry $entry) {
-        if ($this->app->environment('local')) {
+        if (env('TELESCOPE_KEY', false) | $this->app->isLocal()) {
             return true;
         }
 
