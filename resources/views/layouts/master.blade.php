@@ -23,6 +23,7 @@
 
   <!-- Scripts -->
   <script src="{{ mix('js/app.js') }}"></script>
+  <script src="{{ asset('js/darkModede.js') }}"></script>
 
   <!-- Styles -->
   @notifyCss

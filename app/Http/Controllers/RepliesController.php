@@ -10,6 +10,17 @@ use Mckenziearts\Notify\emotify;
 
 class RepliesController extends Controller
 {
+
+     /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'isEmailVerified']);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
