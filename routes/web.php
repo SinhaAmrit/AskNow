@@ -18,7 +18,8 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 // Home Page
-Route::view('/', 'home');
+Route::view('/', 'home')->name('home');
+Route::view('/downloads', 'downloads')->name('downloads');
 
 Route::group(['prefix' => 'discussions', 'as' => 'discussions.', ], function() {
 	Route::resource('/', DiscussionController::class);
@@ -28,9 +29,9 @@ Route::group(['prefix' => 'discussions', 'as' => 'discussions.', ], function() {
 		return view('discussion.show', ['discussion' => $discusion]);
 	});
 });
-Route::group(['prefix' => 'admin', 'as' => 'admin', 'middleware' => 'is_admin'], function() {
-	    //
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'isAdmin'], function() {
+	Route::view('/users', 'admin.users')->name('users');
 });
-Route::group(['prefix' => 'dev', 'as' => 'dev', 'middleware' => 'is_dev'], function() {
-	    //
+Route::group(['prefix' => 'dev', 'as' => 'dev.', 'middleware' => 'isDev'], function() {
+	Route::view('/assignAdmin', 'dev.assignAdmin')->name('assignAdmin');
 });

@@ -9,6 +9,17 @@ use Laravel\Telescope\TelescopeApplicationServiceProvider;
 
 class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
 {
+
+    public function time()
+    {
+        $currentTime = null;
+        $time = date("H");
+        $timezone = date("e");
+        if ($time >= "19" || $time < "7") { $currentTime = true; } 
+        else { $currentTime = null; }
+        return $currentTime;
+    }
+
     /**
      * Register any application services.
      *
@@ -17,9 +28,13 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
     public function register()
     {
         // Telescope::night();
-        if (now()->hour >= 19 || now()->hour < 6) {
-          Telescope::night();
-      }
+        // if (now()->hour >= 19 || now()->hour < 6) {
+        //   Telescope::night();
+        // }
+
+        if ($this->time()) {
+            Telescope::night();
+        }
 
       $this->hideSensitiveRequestDetails();
 

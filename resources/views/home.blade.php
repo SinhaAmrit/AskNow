@@ -60,10 +60,10 @@
 <div class="pt-24">
   <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
     <!--Left Col-->
-    <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+    <div class="flex flex-col w-full md:w-2/5 justify-center items-center md:items-start text-center md:text-left">
       <p class="uppercase tracking-loose w-full">Stuck Somewhere?</p>
       <h1 class="my-4 text-5xl font-bold leading-tight">
-        &#8620; To a developer, <br>&#9832; By a developer!
+        &#8620; For a developer, <br>&#9832; By a developer!
       </h1>
       <p class="leading-normal text-2xl mb-8">
         An Online Discussion Forum!

@@ -13,10 +13,12 @@ use JoelButcher\Socialstream\SetsProfilePhotoFromUrl;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
+    use SoftDeletes;
     use HasFactory;
     use HasProfilePhoto {
         getProfilePhotoUrlAttribute as getPhotoUrl;
@@ -32,7 +34,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password',
+        'name', 'username', 'email', 'password', 'role',
     ];
 
     /**
@@ -80,6 +82,17 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->getPhotoUrl();
     }
 
+    public static function search($search)
+    {
+        return empty($search) ? static::query()->withTrashed()
+        : static::where('id', 'like', '%'.$search.'%')
+        ->orWhere('name', 'like', '%'.$search.'%')
+        ->orWhere('role', 'like', '%'.$search.'%')
+        ->orWhere('email', 'like', '%'.$search.'%')
+        ->orWhere('username', 'like', '%'.$search.'%')
+        ->withTrashed();
+    }
+
         /**
      * One-to-many Relationship with Discussion Model.
      *
@@ -91,4 +104,4 @@ class User extends Authenticatable implements MustVerifyEmail
         public function replies(){
             return $this->hasMany(Reply::class);
         }
-}
+    }
