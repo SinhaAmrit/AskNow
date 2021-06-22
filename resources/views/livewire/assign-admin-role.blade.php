@@ -92,7 +92,7 @@
 					Dev
 				</span>
 				@endif
-				@if(Auth::user()->name === $user->name) 
+				@if(Auth::user()->id === $user->id) 
 				<span class="inline-flex bg-gray-700 text-white rounded-full h-6 px-3 justify-center items-center">
 					Self
 				</span>
