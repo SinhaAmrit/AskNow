@@ -348,8 +348,9 @@
 </section>
 <section class="bg-gray-100 py-8">
   <div class="container mx-auto px-2 pt-4 pb-12 text-gray-800">
-    <form class=" w-full max-w-sm mx-auto space-x-3" method="POST" action="{{ route('contact') }}" autocomplete="off">
+    <form id="contact" class=" w-full max-w-sm mx-auto space-x-3" method="POST" action="{{ route('contact') }}" autocomplete="off">
       @csrf
+      @honeypot
       <div class="w-full max-w-2xl px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
         @if ($errors->any())
         <div class="text-red-500">

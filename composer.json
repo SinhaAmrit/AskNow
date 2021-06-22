@@ -21,6 +21,7 @@
         "munafio/chatify": "^1.2",
         "renatomarinho/laravel-page-speed": "^2.0",
         "spatie/laravel-analytics": "^3.11",
+        "spatie/laravel-honeypot": "^3.0",
         "wulfheart/pretty_routes": "^0.3.0"
     },
     "require-dev": {

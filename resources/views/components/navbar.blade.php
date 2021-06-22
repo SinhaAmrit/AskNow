@@ -50,6 +50,9 @@
                         Telescope
                     </x-jet-dropdown-link>
                     @endcan
+                    <x-jet-dropdown-link href="{{ route('home') }}#contact">
+                        Contact Us!
+                    </x-jet-dropdown-link>
                     <x-jet-dropdown-link href="{{ route('downloads') }}">
                         Downloads
                     </x-jet-dropdown-link>
@@ -112,7 +115,7 @@
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
+                            <x-honeypot />
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             this.closest('form').submit();">

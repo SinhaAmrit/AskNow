@@ -40,6 +40,7 @@
 				@if(auth()->user()->id === $discussion->user_id && $discussion->reply_id == null)
 				<form action="{{ route('discussions.mark-as-best', ['discussion' => $discussion->id, 'reply' => $reply->id]) }}" method="POST">
 					@csrf
+					<x-honeypot />
 					<button type="submit" class="mt-3 text-white p-2 rounded-lg inline-flex items-center bg-purple-500">Mark As Best Reply
 						<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
 							<path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -53,6 +54,7 @@
 		@auth
 		<form action="{{ route('discussions.replies.store', $discussion->id) }}" method="POST">
 			@csrf
+			<x-honeypot />
 			<h2 class="max-w-sm p-4 py-0 mt-6 mb-2 md:w-1/3 text-gray-500">Add Reply</h2>
 			<div class="items-center w-full p-4 py-0 text-gray-500">
 				<input type="text" name="content" id="content" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"/>

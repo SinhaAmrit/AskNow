@@ -16,7 +16,8 @@
 @section('content')
 <div class="container h-screen justify-center overflow-y-auto">
 	<form class="container bg-white mb-80 max-w-2xl mx-auto shadow-md md:w-3/4" method="POST" action="{{ route('discussions.store') }}" autocomplete="off">
-		@csrf 
+		@csrf
+		<x-honeypot />
 		<div class="p-4 bg-gray-100 border-t-2 border-purple-500 rounded-lg bg-opacity-5">
 			<div class="max-w-sm mx-auto md:w-full md:mx-0">
 				@if(Session::has("success")) 
