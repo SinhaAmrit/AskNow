@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\Reply;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use App\Models\Reply;
+use App\Models\User;
 
 class Discussion extends Model
 {
@@ -21,7 +21,7 @@ class Discussion extends Model
     private function uniqueSlug($title)
     {
     	$slug = Str::of($title)->slug('-')->lower()->ascii();
-    	$count = Discussion::where('slug','LIKE',"{$slug}%")->count();
+    	$count = Discussion::where('slug', 'LIKE', "{$slug}%")->count();
     	$newCount = $count > 0 ? ++$count : '';
     	return $newCount > 0 ? "$slug-$newCount" : $slug;
     }
@@ -34,4 +34,5 @@ class Discussion extends Model
     public function replies(){
         return $this->hasMany(Reply::class);
     }
+    
 }

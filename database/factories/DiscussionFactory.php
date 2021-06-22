@@ -15,14 +15,6 @@ class DiscussionFactory extends Factory
      */
     protected $model = Discussion::class;
 
-    // private function uniqueSlug($title)
-    // {
-    //     $slug = Str::of($title)->slug('-')->lower()->ascii();
-    //     $count = Discussion::where('slug','LIKE',"{$slug}%")->count();
-    //     $newCount = $count > 0 ? ++$count : '';
-    //     return $newCount > 0 ? "$slug-$newCount" : $slug;
-    // }
-
     /**
      * Define the model's default state.
      *
@@ -30,7 +22,6 @@ class DiscussionFactory extends Factory
      */
     public function definition()
     {
-
         return [
             'title' => $this->faker->sentence,
             'category' => $this->faker->word,

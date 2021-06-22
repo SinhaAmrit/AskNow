@@ -23,6 +23,6 @@ class Sidebar extends Component
      */
     public function render()
     {
-        return view('components.Sidebar');
+        return view('components.sidebar');
     }
 }

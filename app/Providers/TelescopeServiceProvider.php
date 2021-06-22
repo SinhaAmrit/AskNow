@@ -9,6 +9,17 @@ use Laravel\Telescope\TelescopeApplicationServiceProvider;
 
 class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
 {
+
+    public function time()
+    {
+        $currentTime = null;
+        $time = date("H");
+        $timezone = date("e");
+        if ($time >= "19" || $time < "7") { $currentTime = true; } 
+        else { $currentTime = null; }
+        return $currentTime;
+    }
+
     /**
      * Register any application services.
      *
@@ -17,21 +28,28 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
     public function register()
     {
         // Telescope::night();
+        // if (now()->hour >= 19 || now()->hour < 6) {
+        //   Telescope::night();
+        // }
 
-        $this->hideSensitiveRequestDetails();
+        if ($this->time()) {
+            Telescope::night();
+        }
 
-        Telescope::filter(function (IncomingEntry $entry) {
-            if ($this->app->environment('local')) {
-                return true;
-            }
+      $this->hideSensitiveRequestDetails();
 
-            return $entry->isReportableException() ||
-                   $entry->isFailedRequest() ||
-                   $entry->isFailedJob() ||
-                   $entry->isScheduledTask() ||
-                   $entry->hasMonitoredTag();
-        });
-    }
+      Telescope::filter(function (IncomingEntry $entry) {
+        if (env('TELESCOPE_KEY', false) | $this->app->isLocal()) {
+            return true;
+        }
+
+        return $entry->isReportableException() ||
+        $entry->isFailedRequest() ||
+        $entry->isFailedJob() ||
+        $entry->isScheduledTask() ||
+        $entry->hasMonitoredTag();
+    });
+  }
 
     /**
      * Prevent sensitive request details from being logged by Telescope.

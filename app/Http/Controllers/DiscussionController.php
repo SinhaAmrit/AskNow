@@ -6,6 +6,7 @@ use App\Models\Reply;
 use App\Models\Discussion;
 use Illuminate\Http\Request;
 use Mckenziearts\Notify\emotify;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\CreateDiscussionRequest;
 
@@ -18,7 +19,7 @@ class DiscussionController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->only('store', 'create');
+        $this->middleware(['auth', 'isEmailVerified'])->only('store', 'create');
     }
 
     /**
@@ -38,7 +39,8 @@ class DiscussionController extends Controller
      */
     public function create()
     {
-        return view('discussion.create');
+        $category = DB::table('category')->get('category_name');
+        return view('discussion.create', ['categories'=> $category]);
     }
 
     /**
@@ -49,14 +51,19 @@ class DiscussionController extends Controller
      */
     public function store(CreateDiscussionRequest $request)
     {
-        auth()->user()->discussions()->create([
+        $status = auth()->user()->discussions()->create([
             'title' => $request->title,
             'category' => $request->category,
             'summery' => $request->summery,
             'description' => $request->description,
             'slug' => $request->title
         ]);
-        drakify('success');
+        if($status){
+            drakify('success');
+        }
+        else{
+            drakify('error');
+        }
         return redirect()->back(); 
     }
 

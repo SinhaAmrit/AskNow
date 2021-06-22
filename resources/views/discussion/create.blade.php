@@ -3,14 +3,21 @@
 @section('title', 'Discussions | AskNow')
 
 @section('intoHead')
-{{--! Import CSS for SimpleMDE editor --}}
+{{--! SimpleMDE Style --}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css" defer>
+{{--! Chosen JS Style --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" integrity="sha512-yVvxUQV0QESBt1SyZbNJMAwyKvFTLMyXSyBHDO4BG5t7k/Lw34tyqlSDlKIrIENIzCl+RVUNjmCPG+V/GMesRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{{--! JQuery CDN --}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+{{--! Chosen JS Script --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @endsection
 
 @section('content')
 <div class="container h-screen justify-center overflow-y-auto">
 	<form class="container bg-white mb-80 max-w-2xl mx-auto shadow-md md:w-3/4" method="POST" action="{{ route('discussions.store') }}" autocomplete="off">
-		@csrf 
+		@csrf
+		<x-honeypot />
 		<div class="p-4 bg-gray-100 border-t-2 border-purple-500 rounded-lg bg-opacity-5">
 			<div class="max-w-sm mx-auto md:w-full md:mx-0">
 				@if(Session::has("success")) 
@@ -35,7 +42,14 @@
 				<div class="max-w-sm mx-auto space-y-5 md:w-2/3">
 					<div>
 						<div class="relative ">
-							<input type="text" name="category" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Category"/>
+							<select name="category" id="category" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+								<option value="">Select Category</option>
+								@foreach($categories as $category)
+								<option value="{{ $category->category_name }}">
+									{{ $category->category_name }}
+								</option>
+								@endforeach
+							</select>
 						</div>
 					</div>
 				</div>
@@ -76,5 +90,8 @@
 		let description = $('#description').data('description');
 		console.log(description);
 	}
+</script>
+<script>
+	jQuery('#category').chosen();
 </script>
 @endsection

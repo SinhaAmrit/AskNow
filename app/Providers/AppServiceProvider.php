@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\View\Components\Navbar;
+use App\View\Components\Sidebar;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -33,10 +36,7 @@ class AppServiceProvider extends ServiceProvider
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         });
 
         Gate::define('isDev', function($user)
@@ -45,10 +45,7 @@ class AppServiceProvider extends ServiceProvider
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         });
     }
 }

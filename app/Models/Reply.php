@@ -12,7 +12,7 @@ class Reply extends Model
     protected $fillable = ['discussion_id','content'];
     public function owner()
     {
-    	return $this->belongsTo(User::class,'user_id');
+    	return $this->belongsTo(User::class, 'user_id');
     }
 
     public function discussion()

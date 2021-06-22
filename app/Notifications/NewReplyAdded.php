@@ -43,9 +43,9 @@ class NewReplyAdded extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Someone replied to your query :-)')
-                    ->action('Check Solution', route('discussions.show', $this->discussion->slug))
-                    ->line('Thank you for using our application!');
+        ->line('Someone replied to your query :-)')
+        ->action('Check Solution', route('discussions.show', $this->discussion->slug))
+        ->line('Thank you for using our application!');
     }
 
     /**

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" id="main" class="@php if( isset($_COOKIE['mode'])) echo $_COOKIE['mode']; @endphp">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" id="main">
 <head>
 
   <!-- Meta -->
@@ -21,6 +21,12 @@
   <!-- Title -->
   <title> @yield('title') </title>
 
+  <!-- Fevicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ asset('images/favicon/site.webmanifest') }}">
+
   <!-- Scripts -->
   <script src="{{ mix('js/app.js') }}"></script>
 
@@ -30,14 +36,14 @@
   <link rel="stylesheet" href="{{mix('css/app.css')}}">
   @section('intoHead')
   @show
-
+  <meta name="theme-color" content="#5b21b6">
 </head>
 <body class="antialiased">
   <main class="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden relative">
     <div class="flex items-start justify-between">
-      <x-Sidebar />
+      <x-sidebar />
       <div class="flex flex-col bg-gray-200 dark:bg-gray-700 w-full md:space-y-4">
-        <x-Navbar />
+        <x-navbar />
         @section('content')
         @show
       </div>
@@ -46,7 +52,6 @@
   <x:notify-messages />
   @livewireScripts
   @notifyJs
-  <script src="{{ URL::asset('js/darkMode.js') }}" data-turbolinks-track="true" defer></script>
   @section('beforeBody')
   @show
 </body>

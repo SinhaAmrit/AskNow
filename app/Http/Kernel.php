@@ -37,6 +37,16 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \Spatie\Honeypot\ProtectAgainstSpam::class,
+            \RenatoMarinho\LaravelPageSpeed\Middleware\ElideAttributes::class,
+            \RenatoMarinho\LaravelPageSpeed\Middleware\InsertDNSPrefetch::class,
+            \RenatoMarinho\LaravelPageSpeed\Middleware\RemoveComments::class,
+            \RenatoMarinho\LaravelPageSpeed\Middleware\TrimUrls::class, 
+            \RenatoMarinho\LaravelPageSpeed\Middleware\CollapseWhitespace::class, 
+            // Note: Above middleware invokes "RemoveComments::class" before it runs.
+            // \RenatoMarinho\LaravelPageSpeed\Middleware\DeferJavascript::class,
+            // \RenatoMarinho\LaravelPageSpeed\Middleware\RemoveQuotes::class,
+            // \RenatoMarinho\LaravelPageSpeed\Middleware\InlineCss::class,
         ],
 
         'api' => [
@@ -55,6 +65,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'isAdmin' => \App\Http\Middleware\IsAdmin::class,
+        'isEmailVerified' => \App\Http\Middleware\IsEmailVerified::class,
         'isDev' => \App\Http\Middleware\IsDev::class,
         'IsDevOrAdmin' => \App\Http\Middleware\IsDevOrAdmin::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
