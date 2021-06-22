@@ -440,12 +440,12 @@
         </a>
       </li>
       <li class="my-2">
-        <a class="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="#">
+        <a class="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="{{ route('terms.show') }}">
           | Terms Of Service |
         </a>
       </li>
       <li class="my-2">
-        <a class="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="#">
+        <a class="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="{{ route('policy.show') }}">
           | Privacy Policy |
         </a>
       </li>
