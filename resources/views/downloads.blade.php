@@ -8,6 +8,12 @@
   <!-- Title -->
   <title>Downloads | AskNow</title>
 
+  <!-- Fevicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ asset('images/favicon/site.webmanifest') }}">
+
   <meta name="description" content="" />
   <meta name="keywords" content="" />
   <meta name="author" content="" />
@@ -32,7 +38,8 @@
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
-
+  
+  <meta name="theme-color" content="#5b21b6">
 </head>
 
 <body class="leading-normal tracking-normal text-gray-900" style="font-family: 'Source Sans Pro', sans-serif;">
@@ -67,7 +74,7 @@
 </div>
 
 <!--Main-->
-<div class="container pt-24 md:pt-48 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+<div class="container  md:pt-48 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center">
 
   <!--Left Col-->
   <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
@@ -76,14 +83,14 @@
 
     <p class="text-blue-400 font-bold pb-8 lg:pb-6 text-center md:text-left fade-in">Download our app:</p>
     <div class="flex w-full gap-2 justify-center md:justify-start pb-24 lg:pb-0 fade-in">
-        <a href="{{ asset('release/app-arm64-v8a-release.apk') }}" class="py-2 px-4 flex justify-center items-center  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg" download>
-          Download (arm64-v8a) 5,745 KB
-        </a>
-        <a href="{{ asset('release/app-armeabi-v7a-release.apk') }}" class="py-2 px-4 flex justify-center items-center  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg" download>
-          Download (armeabi-v7a) 5,351 KB
+      <a href="{{ asset('release/app-arm64-v8a-release.apk') }}" class="py-2 px-4 flex justify-center items-center  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg" download>
+        Download<br>(arm64-v8a)<br>5,745 KB
       </a>
-        <a href="{{ asset('release/app-x86_64-release.apk') }}" class="py-2 px-4 flex justify-center items-center  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg" download >
-          Download (x86_64)<br> 5,901 KB
+      <a href="{{ asset('release/app-armeabi-v7a-release.apk') }}" class="py-2 px-4 flex justify-center items-center  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg" download>
+        Download<br>(armeabi-v7a)<br>5,351 KB
+      </a>
+      <a href="{{ asset('release/app-x86_64-release.apk') }}" class="py-2 px-4 flex justify-center items-center  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg" download >
+        Download<br>(x86_64)<br>5,901 KB
       </a>
 
     </div>

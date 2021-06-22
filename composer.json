@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "fakerphp/faker": "^1.9.1",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -15,10 +16,10 @@
         "laravel/sanctum": "^2.6",
         "laravel/telescope": "^4.4",
         "laravel/tinker": "^2.5",
-        "fakerphp/faker": "^1.9.1",
         "livewire/livewire": "^2.4",
         "mckenziearts/laravel-notify": "^2.2",
         "munafio/chatify": "^1.2",
+        "renatomarinho/laravel-page-speed": "^2.0",
         "spatie/laravel-analytics": "^3.11",
         "wulfheart/pretty_routes": "^0.3.0"
     },

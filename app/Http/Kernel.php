@@ -37,13 +37,22 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        ],
+            \RenatoMarinho\LaravelPageSpeed\Middleware\ElideAttributes::class,
+            \RenatoMarinho\LaravelPageSpeed\Middleware\InsertDNSPrefetch::class,
+            \RenatoMarinho\LaravelPageSpeed\Middleware\RemoveComments::class,
+            \RenatoMarinho\LaravelPageSpeed\Middleware\TrimUrls::class, 
+            \RenatoMarinho\LaravelPageSpeed\Middleware\CollapseWhitespace::class, 
+            // Note: Above middleware invokes "RemoveComments::class" before it runs.
+            // \RenatoMarinho\LaravelPageSpeed\Middleware\DeferJavascript::class,
+            // \RenatoMarinho\LaravelPageSpeed\Middleware\RemoveQuotes::class,
+            // \RenatoMarinho\LaravelPageSpeed\Middleware\InlineCss::class,
+],
 
-        'api' => [
-            'throttle:api',
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        ],
-    ];
+'api' => [
+    'throttle:api',
+    \Illuminate\Routing\Middleware\SubstituteBindings::class,
+],
+];
 
     /**
      * The application's route middleware.

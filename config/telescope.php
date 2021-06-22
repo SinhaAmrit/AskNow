@@ -80,7 +80,7 @@ return [
         'auth',
         'password.confirm',
         'IsDevOrAdmin',
-        // Authorize::class,
+        Authorize::class,
     ],
 
     /*

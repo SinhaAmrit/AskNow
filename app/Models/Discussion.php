@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\Reply;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use App\Models\Reply;
+use App\Models\User;
 
 class Discussion extends Model
 {
@@ -34,4 +34,5 @@ class Discussion extends Model
     public function replies(){
         return $this->hasMany(Reply::class);
     }
+    
 }

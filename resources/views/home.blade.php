@@ -8,6 +8,12 @@
   <!-- Title -->
   <title>{{ config('app.name', 'Laravel') }}</title>
 
+  <!-- Fevicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ asset('images/favicon/site.webmanifest') }}">
+
   <meta name="description" content="" />
   <meta name="keywords" content="" />
   <meta name="author" content="" />
@@ -25,7 +31,8 @@
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
-
+  @notifyCss
+  <meta name="theme-color" content="#5b21b6">
 </head>
 <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
   <!--Nav-->
@@ -61,7 +68,7 @@
   <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
     <!--Left Col-->
     <div class="flex flex-col w-full md:w-2/5 justify-center items-center md:items-start text-center md:text-left">
-      <p class="uppercase tracking-loose w-full">Stuck Somewhere?</p>
+      <p class="uppercase tracking-loose w-full">Stuck Somewhere? AskNow!</p>
       <h1 class="my-4 text-5xl font-bold leading-tight">
         &#8620; For a developer, <br>&#9832; By a developer!
       </h1>
@@ -341,24 +348,35 @@
 </section>
 <section class="bg-gray-100 py-8">
   <div class="container mx-auto px-2 pt-4 pb-12 text-gray-800">
-    <form class=" w-full max-w-sm mx-auto space-x-3">
+    <form class=" w-full max-w-sm mx-auto space-x-3" method="POST" action="{{ route('contact') }}" autocomplete="off">
+      @csrf
       <div class="w-full max-w-2xl px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
+        @if ($errors->any())
+        <div class="text-red-500">
+          Woops! Something Went Wrong.
+          <ul>
+            @foreach ($errors->all() as $error)
+            <li>&bull; &nbsp;{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
         <div class="mb-6 text-3xl font-light text-center text-gray-800 dark:text-white">
           Contact us !
         </div>
         <div class="grid max-w-xl grid-cols-2 gap-4 m-auto">
           <div class="col-span-2 lg:col-span-1">
             <div class=" relative ">
-              <input type="text" id="contact-form-name" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Name"/>
+              <input type="text" name="name" id="contact-form-name" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Name"/>
             </div>
           </div>
           <div class="col-span-2 lg:col-span-1">
             <div class=" relative ">
-              <input type="text" id="contact-form-email" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="email"/>
+              <input type="text" name="email" id="contact-form-email" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Email"/>
             </div>
           </div>
           <div class="col-span-2">
-            <label class="text-gray-700" for="name">
+            <label class="text-gray-700" for="comment">
               <textarea class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" id="comment" placeholder="Enter your comment" name="comment" rows="5" cols="40">
               </textarea>
             </label>
@@ -417,22 +435,22 @@
     <ul class="max-w-screen-md mx-auto text-lg font-light flex flex-wrap justify-between">
       <li class="my-2">
         <a class="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="#">
-          FAQ
+          | FAQ |
         </a>
       </li>
       <li class="my-2">
         <a class="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="#">
-          Terms Of Service
+          | Terms Of Service |
         </a>
       </li>
       <li class="my-2">
         <a class="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="#">
-          Privacy Policy
+          | Privacy Policy |
         </a>
       </li>
       <li class="my-2">
         <a class="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="https://github.com/SinhaAmrit/AskNow">
-          Source Code
+          | Source Code |
         </a>
       </li>
     </ul>
@@ -554,5 +572,6 @@
         return false;
       }
     </script>
+    @notifyJs
   </body>
   </html>

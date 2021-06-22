@@ -3,7 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
     important: true,
     // Active dark mode on class basis
-    darkMode: 'class',
+    darkMode: 'media',
     i18n: {
         locales: ["en-US"],
         defaultLocale: "en-US",

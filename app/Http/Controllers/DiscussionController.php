@@ -6,6 +6,7 @@ use App\Models\Reply;
 use App\Models\Discussion;
 use Illuminate\Http\Request;
 use Mckenziearts\Notify\emotify;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\CreateDiscussionRequest;
 
@@ -38,7 +39,8 @@ class DiscussionController extends Controller
      */
     public function create()
     {
-        return view('discussion.create');
+        $category = DB::table('category')->get('category_name');
+        return view('discussion.create', ['categories'=> $category]);
     }
 
     /**
