@@ -2,9 +2,9 @@ name: Laravel
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ main ]
   pull_request:
-    branches: [ develop ]
+    branches: [ main ]
 
 jobs:
   laravel-tests:
@@ -33,3 +33,4 @@ jobs:
     #     DB_CONNECTION: sqlite
     #     DB_DATABASE: database/database.sqlite
     #   run: vendor/bin/phpunit
+
