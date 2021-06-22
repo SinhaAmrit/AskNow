@@ -46,13 +46,13 @@ class Kernel extends HttpKernel
             // \RenatoMarinho\LaravelPageSpeed\Middleware\DeferJavascript::class,
             // \RenatoMarinho\LaravelPageSpeed\Middleware\RemoveQuotes::class,
             // \RenatoMarinho\LaravelPageSpeed\Middleware\InlineCss::class,
-],
+        ],
 
-'api' => [
-    'throttle:api',
-    \Illuminate\Routing\Middleware\SubstituteBindings::class,
-],
-];
+        'api' => [
+            'throttle:api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
+    ];
 
     /**
      * The application's route middleware.

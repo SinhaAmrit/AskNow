@@ -93,15 +93,15 @@ class User extends Authenticatable implements MustVerifyEmail
         ->withTrashed();
     }
 
-        /**
+    /**
      * One-to-many Relationship with Discussion Model.
      *
      * @return string
      */
-        public function discussions(){
-            return $this->hasMany(Discussion::class);
-        }
-        public function replies(){
-            return $this->hasMany(Reply::class);
-        }
+    public function discussions(){
+        return $this->hasMany(Discussion::class);
     }
+    public function replies(){
+        return $this->hasMany(Reply::class);
+    }
+}

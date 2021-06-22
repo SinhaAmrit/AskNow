@@ -34,13 +34,13 @@ class AssignAdminRole extends Component
 	{
 		if(User::find($this->selected)->role != "ADMIN")
 		{
-			$update = User::find($this->selected)->update([
+			User::find($this->selected)->update([
 				'role' => 'ADMIN'
 			]);
 			session()->flash('message', 'Assigned Admin Role.');
 		}
 		elseif (User::find($this->selected)->role === "ADMIN") {
-			$update = User::find($this->selected)->update([
+			User::find($this->selected)->update([
 				'role' => 'USER'
 			]);
 			session()->flash('message', 'Admin Role Revoked.');

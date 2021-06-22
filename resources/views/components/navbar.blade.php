@@ -30,6 +30,9 @@
                     <x-jet-dropdown-link href="{{ route('admin.users') }}">
                         Users
                     </x-jet-dropdown-link>
+                    <x-jet-dropdown-link href="{{ route('category.create') }}">
+                        Users
+                    </x-jet-dropdown-link>
 
                     @endcan
                     @can('isDev')

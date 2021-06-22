@@ -18,7 +18,8 @@ class IsEmailVerified
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
-            if (Auth::user()->email_verified_at) return $next($request); 
+            if (Auth::user()->email_verified_at) 
+                return $next($request); 
         }
         return redirect()->route('verification.notice');
     }

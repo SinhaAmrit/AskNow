@@ -21,7 +21,7 @@ class Discussion extends Model
     private function uniqueSlug($title)
     {
     	$slug = Str::of($title)->slug('-')->lower()->ascii();
-    	$count = Discussion::where('slug','LIKE',"{$slug}%")->count();
+    	$count = Discussion::where('slug', 'LIKE', "{$slug}%")->count();
     	$newCount = $count > 0 ? ++$count : '';
     	return $newCount > 0 ? "$slug-$newCount" : $slug;
     }

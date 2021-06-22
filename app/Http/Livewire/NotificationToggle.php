@@ -20,8 +20,6 @@ class NotificationToggle extends Component
 	public function render()
 	{
 		return view('livewire.notification-toggle')
-		->with(
-			'notifications', auth()->user()->notifications
-		);
+		->with('notifications', auth()->user()->notifications);
 	}
 }

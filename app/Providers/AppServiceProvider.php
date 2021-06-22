@@ -29,8 +29,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        // Blade::component('sidebar', Sidebar::class);
-        // Blade::component('navbar', Navbar::class);
         
         Gate::define('isAdmin', function($user)
         {
@@ -38,10 +36,7 @@ class AppServiceProvider extends ServiceProvider
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         });
 
         Gate::define('isDev', function($user)
@@ -50,10 +45,7 @@ class AppServiceProvider extends ServiceProvider
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         });
     }
 }
