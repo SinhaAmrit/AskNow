@@ -3,7 +3,6 @@
 <form method="POST" action="{{ route('current-team.update') }}">
     @method('PUT')
     @csrf
-    <x-honeypot />
     <!-- Hidden Team ID -->
     <input type="hidden" name="team_id" value="{{ $team->id }}">
 

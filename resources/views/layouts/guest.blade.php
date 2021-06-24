@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="menifest" href="{{ asset('manifest.json') }}">
     @livewireStyles
 
     <!-- Scripts -->

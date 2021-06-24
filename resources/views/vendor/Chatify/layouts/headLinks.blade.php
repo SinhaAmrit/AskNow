@@ -19,6 +19,6 @@
 <link href="{{ asset('css/chatify/style.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/chatify/'.$dark_mode.'.mode.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
-
+<link rel="menifest" href="{{ asset('manifest.json') }}">
 {{-- Messenger Color Style--}}
 @include('Chatify::layouts.messengerColor')
