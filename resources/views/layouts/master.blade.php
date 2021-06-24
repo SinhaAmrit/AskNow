@@ -33,6 +33,7 @@
   <!-- Styles -->
   @notifyCss
   @livewireStyles
+  <link rel="menifest" href="{{ asset('manifest.json') }}">
   <link rel="stylesheet" href="{{mix('css/app.css')}}">
   @section('intoHead')
   @show

@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 
         <!-- Styles -->
+        <link rel="menifest" href="{{ asset('manifest.json') }}">
         <style>
             html {
                 line-height: 1.15;

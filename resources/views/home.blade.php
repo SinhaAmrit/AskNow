@@ -20,6 +20,7 @@
 
   <!-- Styles -->
   @livewireStyles
+  <link rel="menifest" href="{{ asset('manifest.json') }}">
   <link rel="stylesheet" href="{{mix('css/app.css')}}" data-turbolinks-track="true" defer>
 
   <style>

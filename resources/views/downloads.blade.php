@@ -20,8 +20,8 @@
 
   <!-- Styles -->
   @livewireStyles
-  <link rel="stylesheet" href="{{mix('css/app.css')}}" data-turbolinks-track="true" defer>
-
+  <link rel="stylesheet" href="{{mix('css/app.css')}}" defer>
+  <link rel="menifest" href="{{ asset('manifest.json') }}">
   <!-- Animation CSS-->
   <style> 
     .slide-in-bottom{-webkit-animation:slide-in-bottom .5s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-bottom .5s cubic-bezier(.25,.46,.45,.94) both}

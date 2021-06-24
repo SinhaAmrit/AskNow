@@ -19,10 +19,11 @@
 
     <!-- Styles -->
     @livewireStyles
-    <link rel="stylesheet" href="{{mix('css/app.css')}}" data-turbolinks-track="true" defer>
+    <link rel="menifest" href="{{ asset('manifest.json') }}">
+    <link rel="stylesheet" href="{{mix('css/app.css')}}" defer>
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" data-turbolinks-track="true" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
     <meta name="theme-color" content="#5b21b6">
 </head>
 <body class="font-sans antialiased">

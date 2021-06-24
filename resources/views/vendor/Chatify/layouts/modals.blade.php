@@ -35,7 +35,6 @@
           <div class="app-modal-card" data-name="settings" data-modal='0'>
               <form id="updateAvatar" action="{{ route('avatar.update') }}" enctype="multipart/form-data" method="POST">
                   @csrf
-                  <x-honeypot />
                   <div class="app-modal-header">Update your profile settings</div>
                   <div class="app-modal-body">
                       {{-- Udate profile avatar --}}
