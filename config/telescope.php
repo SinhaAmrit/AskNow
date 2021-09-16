@@ -79,8 +79,7 @@ return [
         'web',
         'auth',
         'password.confirm',
-        'IsDevOrAdmin',
-        Authorize::class,
+        'IsDevOrAdmin'
     ],
 
     /*
